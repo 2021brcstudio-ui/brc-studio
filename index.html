@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRC Studio | Contemporary Art Space</title>
+  <style>
+    /* --------------------------------------------------
+       1. 视觉基础与重置 (Global Styles & Reset)
+    -------------------------------------------------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      background-color: #ffffff;
+      color: #111111;
+      line-height: 1.7;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --------------------------------------------------
+       2. 顶部导航栏 (Header & Navigation)
+    -------------------------------------------------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 5%;
+      border-bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(5px);
+      z-index: 100;
+    }
+    .logo {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #111111;
+    }
+    nav { display: flex; align-items: center; }
+    nav a {
+      margin-left: 24px;
+      font-size: 13px;
+      text-decoration: none;
+      color: #666666;
+      transition: color 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    nav a:hover, nav a.active { color: #111111; font-weight: 500; }
+    .lang-btn {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 13px;
+      margin-left: 32px;
+      color: #111111;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* --------------------------------------------------
+       3. 主体布局 (Main Container & Sections)
+    -------------------------------------------------- */
+    main { padding: 40px 5%; max-width: 1200px; margin: 0 auto; min-height: 80vh; }
+    .section { display: none; }
+    .section.active { display: block; animation: fadeIn 0.4s ease-out; }
+
+    /* --------------------------------------------------
+       4. 展览模块 (Exhibitions UI)
+    -------------------------------------------------- */
+    .hero-img {
+      width: 100%;
+      height: auto;
+      max-height: 550px;
+      overflow: hidden;
+      background-color: #f8f8f8;
+    }
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      cursor: pointer;
+    }
+    .hero-img:hover img { transform: scale(1.02); }
+
+    .meta {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #f0f0f0;
+      padding-bottom: 20px;
+    }
+    .meta-title { font-size: 22px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.04em; }
+    .meta-sub { font-size: 13px; color: #666666; margin-top: 4px; }
+
+    .curatorial-text {
+      margin: 30px 0;
+      font-size: 15px;
+      color: #333333;
+      max-width: 800px;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .grid-item img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      cursor: pointer;
+      background-color: #f8f8f8;
+    }
+    .grid-item:hover img { transform: scale(1.02); }
+    .caption { font-size: 12px; color: #666666; margin-top: 8px; font-style: italic; }
+
+    /* --------------------------------------------------
+       5. 艺术家与关于模块 (Artists & About UI)
+    -------------------------------------------------- */
+    .artist-list { list-style: none; margin-top: 20px; }
+    .artist-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .about-content { max-width: 750px; }
+    .about-content h2 { font-weight: 300; font-size: 22px; margin-bottom: 20px; text-transform: uppercase; }
+    .about-content p { font-size: 15px; color: #333333; margin-bottom: 20px; }
+
+    /* --------------------------------------------------
+       6. 高清全屏放大弹窗 (Lightbox Modal)
+    -------------------------------------------------- */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+    .modal img { max-width: 90%; max-height: 90%; object-fit: contain; }
+
+    /* --------------------------------------------------
+       7. 页脚 (Footer)
+    -------------------------------------------------- */
+    footer {
+      padding: 40px 5%;
+      border-top: 1px solid #e5e5e5;
+      font-size: 12px;
+      color: #888888;
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= 顶部导航 ================= -->
+  <header>
+    <a href="#" class="logo" onclick="showSection('exhibitions')">BRC STUDIO</a>
+    <nav>
+      <a href="#" class="nav-link active" onclick="showSection('exhibitions')" data-zh="展览" data-en="EXHIBITIONS">展览</a>
+      <a href="#" class="nav-link" onclick="showSection('artists')" data-zh="艺术家" data-en="ARTISTS">艺术家</a>
+      <a href="#" class="nav-link" onclick="showSection('about')" data-zh="关于" data-en="ABOUT">关于</a>
+      <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">EN</button>
+    </nav>
+  </header>
+
+  <!-- ================= 主体内容 ================= -->
+  <main>
+    
+    <!-- 1. 展览板块 (EXHIBITIONS) -->
+    <div id="exhibitions" class="section active">
+      <!-- 主视觉展场图 -->
+      <div class="hero-img" onclick="openModal('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=1200')">
+        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=1200" alt="Current Exhibition">
+      </div>
+      
+      <!-- 展览元数据 -->
+      <div class="meta">
+        <div>
+          <div class="meta-title" data-zh="当代语境下的重构" data-en="RECONSTRUCTION IN CONTEMPORARY CONTEXT">当代语境下的重构</div>
+          <div class="meta-sub" data-zh="群展 | 策展人: BRC 学术委员会" data-en="Group Exhibition | Curated by BRC Committee">群展 | 策展人: BRC 学术委员会</div>
+        </div>
+        <div class="meta-sub" style="text-align: right;">2026.09.10 – 2026.11.15</div>
+      </div>
+
+      <!-- 策展前言 -->
+      <div class="curatorial-text" 
+           data-zh="本次展览探讨了数字媒介与实体空间交汇下的当代艺术表达。通过一系列委任创作与场地特定装置，展出作品重构了公众对空间、感知与身份的固有想象。"
+           data-en="This exhibition explores contemporary artistic expressions at the intersection of digital media and physical space. Through a series of commissioned works and site-specific installations, the featured works reconstruct public perception of space and identity.">
+        本次展览探讨了数字媒介与实体空间交汇下的当代艺术表达。通过一系列委任创作与场地特定装置，展出作品重构了公众对空间、感知与身份的固有想象。
+      </div>
+
+      <!-- 参展作品 / 展场网格 -->
+      <div class="grid">
+        <div class="grid-item" onclick="openModal('https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800')">
+          <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800" alt="Artwork 01">
+          <div class="caption" data-zh="艺术家姓名, 《作品名称 01》, 2026. 布面油画, 150 × 120 cm" data-en="Artist Name, Title 01, 2026. Oil on canvas, 150 × 120 cm">
+            艺术家姓名, 《作品名称 01》, 2026. 布面油画, 150 × 120 cm
+          </div>
+        </div>
+        <div class="grid-item" onclick="openModal('https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800')">
+          <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800" alt="Artwork 02">
+          <div class="caption" data-zh="展场记录 02, 综合材料装置, 2026" data-en="Installation View 02, Mixed media, 2026">
+            展场记录 02, 综合材料装置, 2026
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 艺术家板块 (ARTISTS) -->
+    <div id="artists" class="section">
+      <h2 style="font-weight: 300; font-size: 22px; margin-bottom: 20px;" data-zh="合作与驻留艺术家" data-en="ARTISTS & PROJECTS">合作与驻留艺术家</h2>
+      <ul class="artist-list">
+        <li>
+          <span>Artist Name 01 (艺术家姓名)</span>
+          <span style="color: #888; font-size: 13px;" data-zh="参展项目: 当代语境下的重构" data-en="Exhibition: Reconstruction">参展项目: 当代语境下的重构</span>
+        </li>
+        <li>
+          <span>Artist Name 02 (艺术家姓名)</span>
+          <span style="color: #888; font-size: 13px;" data-zh="驻留项目 2026" data-en="Residency 2026">驻留项目 2026</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 3. 关于与参观板块 (ABOUT & VISIT) -->
+    <div id="about" class="section">
+      <div class="about-content">
+        <h2 data-zh="关于 BRC Studio" data-en="ABOUT BRC STUDIO">关于 BRC Studio</h2>
+        <p data-zh="BRC Studio 是一家非营利当代艺术机构，致力于推动前沿艺术实践、学术研究与国际文化交流。我们为独立策展人与当代艺术家提供开放的空间与资源支持。"
+           data-en="BRC Studio is a non-profit contemporary art institution dedicated to pioneering art practices, academic research, and international cultural exchanges. We offer space and resources for independent curators and contemporary artists.">
+          BRC Studio 是一家非营利当代艺术机构，致力于推动前沿艺术实践、学术研究与国际文化交流。我们为独立策展人与当代艺术家提供开放的空间与资源支持。
+        </p>
+
+        <h2 style="margin-top: 40px;" data-zh="参观与联系" data-en="VISIT & CONTACT">参观与联系</h2>
+        <p data-zh="开放时间：周二至周日 11:00 – 18:00 (周一闭馆)<br>地址：当代艺术园区 BRC Space<br>联系邮箱：contact@brc-studio.art"
+           data-en="Opening Hours: Tue – Sun, 11:00 – 18:00 (Closed on Mondays)<br>Address: BRC Space, Art District<br>Contact: contact@brc-studio.art">
+          开放时间：周二至周日 11:00 – 18:00 (周一闭馆)<br>
+          地址：当代艺术园区 BRC Space<br>
+          联系邮箱：contact@brc-studio.art
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= 高清全屏弹窗 ================= -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <img id="modalImg" src="" alt="Zoomed View">
+  </div>
+
+  <!-- ================= 页脚 ================= -->
+  <footer>
+    <div>© 2026 BRC STUDIO. ALL RIGHTS RESERVED.</div>
+    <div>NON-PROFIT CONTEMPORARY ART INSTITUTION</div>
+  </footer>
+
+  <!-- ================= JS 逻辑 (双语 + 交互) ================= -->
+  <script>
+    let currentLang = 'zh';
+
+    // 切换中英文函数
+    function toggleLanguage() {
+      currentLang = currentLang === 'zh' ? 'en' : 'zh';
+      document.getElementById('langBtn').innerText = currentLang === 'zh' ? 'EN' : '中文';
+      
+      // 遍历更新带有 data-zh 和 data-en 的所有节点
+      document.querySelectorAll('[data-zh]').forEach(el => {
+        el.innerHTML = el.getAttribute(`data-${currentLang}`);
+      });
+    }
+
+    // 板块无刷新切换函数
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
+      
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    // 灯箱全屏大图控制
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('modal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
