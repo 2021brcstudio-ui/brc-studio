@@ -2,17 +2,17 @@
     "version": "https://jsonfeed.org/version/1",
     "title": "brc.studio.art",
     "description": "",
-    "home_page_url": "https://brc.studio.art",
-    "feed_url": "https://brc.studio.art/feed.json",
+    "home_page_url": "https://brc-studio.art",
+    "feed_url": "https://brc-studio.art/feed.json",
     "user_comment": "",
-    "icon": "https://brc.studio.art/media/website/BRC-logo-Kao-Bei-01-2.png",
+    "icon": "https://brc-studio.art/media/website/BRC-logo-Kao-Bei-01-2.png",
     "author": {
         "name": "yanshi"
     },
     "items": [
         {
-            "id": "https://brc.studio.art/brc-studio.html",
-            "url": "https://brc.studio.art/brc-studio.html",
+            "id": "https://brc-studio.art/brc-studio.html",
+            "url": "https://brc-studio.art/brc-studio.html",
             "title": "/zh/",
             "summary": "BRC Studio（Before Riches Come） BRC Studio 最初是一个具体的家与工作室，由驻居宿主日常看护。它也是一个流动的现场——由多位伙伴以不同粒度共同介入、搭建与维系。 目前，它寄生或流窜于各种场域。它不驻于任何一处，不设立永久的权威与秩序。 每一次共同实践都在其自身条件中形成，并留下记录。 唯一的原则：让事情发生。",
             "content_html": "<p><strong>BRC Studio（Before Riches Come）</strong><br><br>BRC Studio 最初是一个具体的家与工作室，由驻居宿主日常看护。它也是一个流动的现场——由多位伙伴以不同粒度共同介入、搭建与维系。<br><br>目前，它寄生或流窜于各种场域。它不驻于任何一处，不设立永久的权威与秩序。<br><br>每一次共同实践都在其自身条件中形成，并留下记录。<br><br>唯一的原则：让事情发生。</p>",
