@@ -1,11 +1,10 @@
 {
     "version": "https://jsonfeed.org/version/1",
-    "title": "brc.studio.art",
+    "title": "BRC",
     "description": "",
     "home_page_url": "https://brc-studio.art",
     "feed_url": "https://brc-studio.art/feed.json",
     "user_comment": "",
-    "icon": "https://brc-studio.art/media/website/BRC-logo-Kao-Bei-01-2.png",
     "author": {
         "name": "yanshi"
     },
