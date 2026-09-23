@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://brc-studio.pages.dev/sitemap.xml
+Sitemap: https://brc-studio.art/sitemap.xml
