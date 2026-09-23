@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+    <title>brc.studio.art</title>
+    <link href="https://brc.studio.art/feed.xml" rel="self" />
+    <link href="https://brc.studio.art" />
+    <updated>2026-09-23T17:10:14+08:00</updated>
+    <author>
+        <name>yanshi</name>
+    </author>
+    <id>https://brc.studio.art</id>
+
+    <entry>
+        <title>/zh/</title>
+        <author>
+            <name>yanshi</name>
+        </author>
+        <link href="https://brc.studio.art/brc-studio.html"/>
+        <id>https://brc.studio.art/brc-studio.html</id>
+
+        <updated>2026-09-23T00:21:07+08:00</updated>
+            <summary>
+                <![CDATA[
+                    BRC Studio（Before Riches Come） BRC Studio 最初是一个具体的家与工作室，由驻居宿主日常看护。它也是一个流动的现场——由多位伙伴以不同粒度共同介入、搭建与维系。 目前，它寄生或流窜于各种场域。它不驻于任何一处，不设立永久的权威与秩序。 每一次共同实践都在其自身条件中形成，并留下记录。 唯一的原则：让事情发生。
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p><strong>BRC Studio（Before Riches Come）</strong><br><br>BRC Studio 最初是一个具体的家与工作室，由驻居宿主日常看护。它也是一个流动的现场——由多位伙伴以不同粒度共同介入、搭建与维系。<br><br>目前，它寄生或流窜于各种场域。它不驻于任何一处，不设立永久的权威与秩序。<br><br>每一次共同实践都在其自身条件中形成，并留下记录。<br><br>唯一的原则：让事情发生。</p>
+            ]]>
+        </content>
+    </entry>
+</feed>
