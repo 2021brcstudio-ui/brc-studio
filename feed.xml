@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
     <title>brc.studio.art</title>
-    <link href="https://brc-studio.art/feed.xml" rel="self" />
-    <link href="https://brc-studio.art" />
+    <link href="https://brc-studio.pages.dev/feed.xml" rel="self" />
+    <link href="https://brc-studio.pages.dev" />
     <updated>2026-09-23T17:10:14+08:00</updated>
     <author>
         <name>yanshi</name>
     </author>
-    <id>https://brc-studio.art</id>
+    <id>https://brc-studio.pages.dev</id>
 
     <entry>
         <title>/zh/</title>
         <author>
             <name>yanshi</name>
         </author>
-        <link href="https://brc-studio.art/brc-studio.html"/>
-        <id>https://brc-studio.art/brc-studio.html</id>
+        <link href="https://brc-studio.pages.dev/brc-studio.html"/>
+        <id>https://brc-studio.pages.dev/brc-studio.html</id>
 
         <updated>2026-09-23T00:21:07+08:00</updated>
             <summary>

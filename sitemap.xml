@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="https://brc-studio.art/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="https://brc-studio.pages.dev/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
-<loc>https://brc-studio.art/</loc>
+<loc>https://brc-studio.pages.dev/</loc>
 </url>
 <url>
-<loc>https://brc-studio.art/brc-studio.html</loc>
+<loc>https://brc-studio.pages.dev/brc-studio.html</loc>
 <lastmod>2026-09-23T17:10:14+08:00</lastmod>
 </url>
 <url>
-<loc>https://brc-studio.art/contact.html</loc>
+<loc>https://brc-studio.pages.dev/contact.html</loc>
 <lastmod>2026-09-23T17:13:27+08:00</lastmod>
 </url>
 </urlset>
